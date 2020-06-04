@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="color_app_bar_text">#005689</color>
+    <color name="color_tab_text">#a7c0cd</color>
+
+    <color name="violet">#9c27b0</color>
+    <color name="dark_gray">#B00C0C0C</color>
+    <color name="light_gray">#9A363535</color>
+    <color name="recycler_background">#17363535</color>
+    <color name="white">#FFFFFF</color>
+
+
+</resources>

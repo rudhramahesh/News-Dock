@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
+    app:ignore="NamespaceTypo">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.rudhra.newsdoc.ui.model.NewsItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        card_view:cardUseCompatPadding="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        card_view:cardCornerRadius="@dimen/layout_margin_5"
+        card_view:cardBackgroundColor="@android:color/white"
+        card_view:cardElevation="0dp"
+        card_view:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin_10"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_margin_5"
+                android:text="@{item.title}"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_margin_5"
+                android:text="@{item.description}"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                android:ellipsize="end"
+                card_view:layout_constraintEnd_toStartOf="@+id/thumbnail_image_card"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintBottom_toTopOf="@+id/tv_author_card"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+
+            <ImageView
+                android:id="@+id/thumbnail_image_card"
+                android:layout_width="@dimen/thumbnail_image_width"
+                android:layout_height="@dimen/thumbnail_image_height"
+                android:layout_margin="@dimen/layout_margin_5"
+                android:contentDescription="@string/thumb_nail_image"
+                app:imageUrl="@{item.urlToImage}"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/tv_description"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+
+            <TextView
+                android:id="@+id/tv_author_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_margin_5"
+                android:text="@{item.source.name}"
+                android:textColor="@color/violet"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_description"
+                card_view:layout_constraintBottom_toTopOf="@+id/date_card" />
+
+
+            <TextView
+                android:id="@+id/date_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_margin_5"
+                android:text="@{item.publishedAt}"
+                android:textColor="@color/light_gray"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_author_card"
+                card_view:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/share_image_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_5"
+                android:layout_marginTop="@dimen/layout_margin_5"
+                android:contentDescription="@string/share_news"
+                android:src="@drawable/ic_share_black"
+                card_view:layout_constraintTop_toBottomOf="@+id/thumbnail_image_card"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
